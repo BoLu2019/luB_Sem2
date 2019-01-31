@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
   <style>
     #slate {border: 1px solid black }
   </style>
-  
-  <script src="clickdraw.js"></script>
+  </head>
 
-  <h1>Bonjour monde!</h1>
-  <h2>canvas</h2>
+  <body>
+    
 
-  <button type="button" id="clear">CLEAR CANVAS</button>
-  <div>
-    <canvas height="300"
-	    width="300" id="slate">
+    <h1>Bonjour monde!</h1>
+    <h2>canvas</h2>
+
+    <h5 id="xcor"></h5>
+    <h5 id="ycor"></h5>
+
+    <button id="clear">CLEAR CANVAS</button>
+    <button id="toggle">Toggle Box-Dot</button>
+
+    <br> 
+    
+    
+    <canvas height="500"
+      width="500" id="slate">
       hello world
     </canvas>
-  </div>
-  
+
+    <script src="clickdraw.js"></script>
+    
+</body>
+
 </html>
