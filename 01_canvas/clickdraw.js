@@ -17,7 +17,7 @@ ctx.fillStyle= 'red';
 clr.addEventListener("click", clearCanvas );
 tog.addEventListener("click", newMode );
 
-tog.innerHTML = "Click if ye want dots";
+tog.innerHTML = "Toggle";
 
 function clearCanvas() {
     ctx.fillStyle = "white";
@@ -29,11 +29,10 @@ function clearCanvas() {
 function newMode() {
     if (mode) {
         mode = false;
-        tog.innerHTML = "Click if ye want rectangles";
+
     }
     else{
         mode = true;
-        tog.innerHTML = "Click if ye want dots";
     }
 
 }
@@ -48,12 +47,12 @@ function drawStuff(e) {
         ctx.ellipse(e.offsetX, e.offsetY, 5, 5, 0, Math.PI, Math.PI*3)
         ctx.fill();
         ctx.stroke();
-
     }
 
 
 }
 
+//e.preventDefault();
 
 c.addEventListener("click", drawStuff);
 
