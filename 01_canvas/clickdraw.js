@@ -1,60 +1,68 @@
-// Bo Hui Lu
+// Bo Hui Lu and William Lu
 // SoftDev pd7
-// K00 -- I See a Red Door
-// 2019-01-30
+// K01 -- ...and I want to Paint it better
+// 2019-01-31
+
+/* 
+e.preventDefault();
+- If an event has a default action, this method "blocks" that default.
+
+ctx.beginPath();
+- Starts a path on the canvas.
+
+e.offsetX
+- The X-cor position of the cursor on the canvas.
 
 
-var clr = document.getElementById("clear");
-var tog = document.getElementById("toggle");
-
-var mode = true; //rect = truee, dot = false
+e.offsetY
+- The Y-cor position of the cursor on the canvas.
 
 
+*/
+
+//variables to allow interaction with canvas
+//also sets click color to blue and defaults to drawing boxes
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
-ctx.fillStyle= 'red';
+ctx.fillStyle = "blue";
+var rect = true;
 
-clr.addEventListener("click", clearCanvas );
-tog.addEventListener("click", newMode );
+//gets the size of canvas
+var w = c.getAttribute("width");
+var h = c.getAttribute("height");
 
-tog.innerHTML = "Toggle";
+//method for clearing the canvas
+var clr = document.getElementById("clr");
+clr.addEventListener('click', function(e) {
+  //e.preventDefault();
+  ctx.clearRect(0, 0, w, h);
+})
 
-function clearCanvas() {
-    ctx.fillStyle = "white";
-    ctx.clearRect(0, 0, 500, 500);
-    ctx.fillStyle = "red";
+var tgl = document.getElementById("tgl");
 
+//method for switching the value of rect, which decides if it draws box/dot
+tgl.addEventListener('click', function(){
+  //e.preventDefault();
+  rect = !rect;
+})
+
+//method for drawing a box/dot depending on the value of rect
+c.addEventListener('click', function(e) {
+  e.preventDefault();
+  if (rect)
+    drawBox(e);
+  else
+    drawDot(e);
+});
+
+//helper func for drawing a box 
+var drawBox = function(e) {
+  ctx.fillRect(e.offsetX - 10, e.offsetY - 10, 20, 20);
 }
 
-function newMode() {
-    if (mode) {
-        mode = false;
-
-    }
-    else{
-        mode = true;
-    }
-
+//helper func for drawing a dot
+var drawDot = function(e) {
+  ctx.beginPath();
+  ctx.ellipse(e.offsetX, e.offsetY, 5, 5, 0, 0, 2 * Math.PI);
+  ctx.fill();
 }
-
-function drawStuff(e) {
-    if (mode) { //rectt mode
-        ctx.fillRect(e.offsetX - 25, e.offsetY - 50, 50, 100)
-
-    }
-    else{
-        ctx.beginPath()
-        ctx.ellipse(e.offsetX, e.offsetY, 5, 5, 0, Math.PI, Math.PI*3)
-        ctx.fill();
-        ctx.stroke();
-    }
-
-
-}
-
-//e.preventDefault();
-
-c.addEventListener("click", drawStuff);
-
-console.log(c);
-console.log(ctx);
