@@ -6,11 +6,7 @@ db = connection.PinkMangoes
 collection = db.pokemons
 
 def pokemon_type(type, collection):
-    print(collection)
-    print('ahiaf')
-    ans=list(collection.find({'type':type}))
-    print('type:',ans)
-    return ans
+    return collection.find({'type':type})
     #print(list(results))
     # for res in results:
     #    print(res['name'])
@@ -19,10 +15,7 @@ def pokemon_type(type, collection):
     #    print("\n")
 
 def pokemon_name(name, collection):
-    print('asdfa',collection)
-    ans=list(collection.find({"name":name}))
-    print('name:',ans)
-    return ans
+    return collection.find({"name":name})
     #print(list(results))
     # for res in results:
     #    print(res['name'])

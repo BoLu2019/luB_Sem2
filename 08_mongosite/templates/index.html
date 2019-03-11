@@ -18,8 +18,7 @@
 		{% if displayPokemon %}
 		<p>Results:</p>
 			<ul>
-			  {% for res in pokemons %}
-			  
+				{% for res in pokemons %}
 					<li>{{res['name']}} - ({{res['type']}}) - ({{res['height']}}/{{res['weight']}})</li>
 				{% endfor %}
 			</ul>
