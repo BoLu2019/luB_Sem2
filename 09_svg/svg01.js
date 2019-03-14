@@ -23,14 +23,14 @@ var draw = function(e) {
 
     //draws line when not the first pt, cuz the first one would be a circle
     if( firX != null){
-	e.preventDefault();
-	var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute('x1',firX);
-        line.setAttribute('y1',firY);
-        line.setAttribute('x2',e.offsetX);
-        line.setAttribute('y2',e.offsetY);
+        e.preventDefault();
+        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1",firX);
+        line.setAttribute("y1",firY);
+        line.setAttribute("x2",e.offsetX);
+        line.setAttribute("y2",e.offsetY);
         line.setAttribute("stroke", "black")
-	pict.appendChild(line);
+        pict.appendChild(line);
 	
     }  
     
@@ -40,7 +40,6 @@ var draw = function(e) {
     circle.setAttribute("cy",e.offsetY);
     circle.setAttribute("r", 15);
     circle.setAttribute("fill","purple");
-    circle.setAttribute("stroke","black");
     //Add to pict
     pict.appendChild(circle);
 
