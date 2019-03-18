@@ -19,6 +19,9 @@ var clear = function(e) {
 }
 
 var draw = function(e) {
+    //new Y, new Y values
+    var nX = e.offsetX;
+    var nY = e.offsetY;
    
 
     //draws line when not the first pt, cuz the first one would be a circle
@@ -27,8 +30,8 @@ var draw = function(e) {
         var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
         line.setAttribute("x1",firX);
         line.setAttribute("y1",firY);
-        line.setAttribute("x2",e.offsetX);
-        line.setAttribute("y2",e.offsetY);
+        line.setAttribute("x2",nX);
+        line.setAttribute("y2",nY);
         line.setAttribute("stroke", "black")
         pict.appendChild(line);
 	
@@ -36,8 +39,8 @@ var draw = function(e) {
     
     //circle
     var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle"); 
-    circle.setAttribute("cx",e.offsetX);
-    circle.setAttribute("cy",e.offsetY);
+    circle.setAttribute("cx",nX);
+    circle.setAttribute("cy",nY);
     circle.setAttribute("r", 15);
     circle.setAttribute("fill","purple");
     //Add to pict
@@ -45,8 +48,8 @@ var draw = function(e) {
 
     
     //Update vars
-    firX = e.offSetX;
-    firY = e.offSetY;
+    firX = nX;
+    firY = nY;
     
 
 }
