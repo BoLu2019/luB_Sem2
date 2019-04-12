@@ -1,0 +1,11 @@
+def num1():
+    list = []
+    for(i = 0; i < 4; ,i++):
+        x =i*22
+        list.append(x)
+    return list
+
+num1()
+    
+        
+        
