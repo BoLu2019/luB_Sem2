@@ -44,23 +44,23 @@ num2()
 num2_list()
 
 
-def num3(n):
+def num3():
     list = []
-    for i in range(n):
+    for i in range(3):
         for j in range(3):
             list.append(i * j)
     print(list)
     return list
 
 
-def num3_list(n):
-    list = [i * j for i in range(n) for j in range(3)]
+def num3_list():
+    list = [i * j for i in range(3) for j in range(3)]
     print(list)
     return list
 
 
-num3(3)
-num3_list(3)
+num3()
+num3_list()
 
 primes = [0,2,3,5,7] #kind of cheating a bit
 
