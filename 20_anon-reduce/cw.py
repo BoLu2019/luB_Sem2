@@ -1,4 +1,6 @@
-#team Reduction Eruption - Bo Lu, Soojin Choi
+#team Reduce & Never Reuse - Bo Lu, Soojin Choi
+
+from functools import reduce
 
 def reader(filename):
     file = open(filename, "r")
@@ -11,6 +13,8 @@ def reader(filename):
     print(list)
     return list
 
+
+
 book = reader('excerpt.txt')
 def freq(word):
     print("Frequency of: " + word + "-> " + str( len([x for x in book if x == word]) ) )
@@ -20,6 +24,10 @@ freq("I")
 
 
 def freq_Group(wordList):
-    print [freq(x) for x in wordList ]
+    list = wordList.split(" ")
+    idk = []
 
-freq_Group(["I", "the"])
+    idk.append(reduce(lambda a,b :  a if a in list and b in list else b,book))
+    print idk
+
+freq_Group("we are wasting")
